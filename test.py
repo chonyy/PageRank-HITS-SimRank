@@ -4,7 +4,7 @@ from numpy import array
 from src.utils import init_graph
 import matplotlib.pyplot as plt
 
-with open('./dataset/graph_3.txt') as f:
+with open('./dataset/HITS.txt') as f:
     lines = f.readlines()
 
 G = nx.DiGraph()

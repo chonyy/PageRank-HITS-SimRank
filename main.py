@@ -45,7 +45,7 @@ if __name__ == '__main__':
     damping_factor = 0.15
     decay_factor = 0.9
     iteration = 100
-    file_path = 'pagerank.txt'
+    file_path = 'dataset/HITS.txt'
     result_dir = 'result'
     fname = file_path.split('/')[-1].split('.')[0]
 

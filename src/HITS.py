@@ -6,12 +6,11 @@ def HITS_one_iter(graph):
 
     for node in node_list:
         node.update_auth()
+
+    for node in node_list:
         node.update_hub()
 
     graph.normalize_auth_hub()
-
-    for node in node_list:
-        node.replace_auth_hub()
 
 
 def HITS(iteration, graph):
