@@ -52,6 +52,10 @@ class Graph:
 
         return np.round(auth_list, 2), np.round(hub_list, 2)
 
+    def get_pagerank_list(self):
+        pagerank_list = np.asarray([node.pagerank for node in self.nodes], dtype='float32')
+        return np.round(pagerank_list, 2)
+
 
 class Node:
     def __init__(self, name):
@@ -62,6 +66,7 @@ class Node:
         self.old_hub = 1.0
         self.new_auth = 0.0
         self.new_hub = 0.0
+        self.pagerank = 1.0
 
     def link_child(self, child):
         self.children.append(child)
@@ -78,3 +83,9 @@ class Node:
 
     def update_hub(self):
         self.new_hub = sum(node.old_auth for node in self.children)
+
+    def update_pagerank(self, d, n):
+        in_neighbors = self.parents
+        pagerank_sum = sum((node.pagerank / len(node.children)) for node in in_neighbors)
+        random_jumping = d / n
+        self.pagerank = random_jumping + (1-d) * pagerank_sum

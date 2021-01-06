@@ -25,7 +25,7 @@ if __name__ == '__main__':
 
     iteration = 100
 
-    graph = init_graph('./dataset/HITS.txt')
+    graph = init_graph('./dataset/graph_4.txt')
     HITS(iteration, graph)
     auth_list, hub_list = graph.get_auth_hub_list()
     print(auth_list)

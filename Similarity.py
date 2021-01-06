@@ -52,6 +52,7 @@ class Similarity:
             for in2 in in_neighbors2:
                 SimRank_sum += self.get_sim_value(in1, in2)
 
+        # Follows the equation
         scale = self.decay_factor / (len(in_neighbors1) * len(in_neighbors2))
         new_SimRank = scale * SimRank_sum
 
