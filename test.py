@@ -4,7 +4,7 @@ from numpy import array
 from utils import init_graph
 import matplotlib.pyplot as plt
 
-with open('./dataset/pagerank.txt') as f:
+with open('./dataset/graph_4.txt') as f:
     lines = f.readlines()
 
 G = nx.DiGraph()

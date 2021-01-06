@@ -25,9 +25,9 @@ def SimRank(iteration, graph, sim):
 if __name__ == '__main__':
 
     decay_factor = 0.9
-    iteration = 5
+    iteration = 100
 
-    graph = init_graph('dataset/pagerank.txt')
+    graph = init_graph('dataset/graph_4.txt')
     sim = Similarity(graph, decay_factor)
 
     SimRank(iteration, graph, sim)
