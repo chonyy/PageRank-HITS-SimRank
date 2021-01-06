@@ -1,3 +1,6 @@
+import numpy as np
+
+
 class Graph:
     def __init__(self):
         self.nodes = []
@@ -26,8 +29,28 @@ class Graph:
 
     def display(self):
         for node in self.nodes:
-            print(
-                f'{node.name} links to {[child.name for child in node.children]}')
+            print(f'{node.name} links to {[child.name for child in node.children]}')
+
+    def sort_nodes(self):
+        self.nodes.sort(key=lambda node: int(node.name))
+
+    def display_hub_auth(self):
+        for node in self.nodes:
+            print(f'{node.name}  Auth: {node.old_auth}  Hub: {node.old_hub}')
+
+    def normalize_auth_hub(self):
+        auth_sum = sum(node.new_auth for node in self.nodes)
+        hub_sum = sum(node.new_hub for node in self.nodes)
+
+        for node in self.nodes:
+            node.new_auth /= auth_sum
+            node.new_hub /= hub_sum
+
+    def get_auth_hub_list(self):
+        auth_list = np.asarray([node.new_auth for node in self.nodes], dtype='float32')
+        hub_list = np.asarray([node.new_hub for node in self.nodes], dtype='float32')
+
+        return np.round(auth_list, 2), np.round(hub_list, 2)
 
 
 class Node:
@@ -35,9 +58,23 @@ class Node:
         self.name = name
         self.children = []
         self.parents = []
+        self.old_auth = 1.0
+        self.old_hub = 1.0
+        self.new_auth = 0.0
+        self.new_hub = 0.0
 
     def link_child(self, child):
         self.children.append(child)
 
     def link_parent(self, parent):
         self.parents.append(parent)
+
+    def replace_auth_hub(self):
+        self.old_auth = self.new_auth
+        self.old_hub = self.new_hub
+
+    def update_auth(self):
+        self.new_auth = sum(node.old_hub for node in self.parents)
+
+    def update_hub(self):
+        self.new_hub = sum(node.old_auth for node in self.children)
