@@ -1,6 +1,6 @@
-from Graph import Node, Graph
-from Similarity import Similarity
-from utils import init_graph
+from src.Graph import Node, Graph
+from src.Similarity import Similarity
+from src.utils import init_graph
 import numpy as np
 
 
@@ -33,3 +33,5 @@ if __name__ == '__main__':
     SimRank(iteration, graph, sim)
     ans = sim.get_sim_matrix()
     print(ans)
+
+    np.savetxt('SimRank.txt', ans, delimiter=' ', fmt='%.2f')

@@ -64,4 +64,4 @@ class Similarity:
         self.new_sim[node1_idx][node2_idx] = value
 
     def get_sim_matrix(self):
-        return np.round(np.asarray(self.new_sim), 2)
+        return np.round(np.asarray(self.new_sim), 3)

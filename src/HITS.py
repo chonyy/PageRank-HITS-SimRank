@@ -1,4 +1,4 @@
-from utils import init_graph
+from src.utils import init_graph
 
 
 def HITS_one_iter(graph):

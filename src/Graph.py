@@ -50,11 +50,11 @@ class Graph:
         auth_list = np.asarray([node.new_auth for node in self.nodes], dtype='float32')
         hub_list = np.asarray([node.new_hub for node in self.nodes], dtype='float32')
 
-        return np.round(auth_list, 2), np.round(hub_list, 2)
+        return np.round(auth_list, 3), np.round(hub_list, 3)
 
     def get_pagerank_list(self):
         pagerank_list = np.asarray([node.pagerank for node in self.nodes], dtype='float32')
-        return np.round(pagerank_list, 2)
+        return np.round(pagerank_list, 3)
 
 
 class Node:

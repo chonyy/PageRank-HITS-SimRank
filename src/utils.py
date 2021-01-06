@@ -1,4 +1,4 @@
-from Graph import Graph
+from src.Graph import Graph
 
 
 def init_graph(fname):
