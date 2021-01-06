@@ -43,7 +43,7 @@ class Similarity:
         in_neighbors1 = node1.parents
         in_neighbors2 = node2.parents
 
-        # Return 0 if one of them has no in neighbor
+        # Return 0 if one of them has no in-neighbor
         if(len(in_neighbors1) == 0 or len(in_neighbors2) == 0):
             return 0.0
 
