@@ -46,6 +46,12 @@ class Graph:
             node.auth /= auth_sum
             node.hub /= hub_sum
 
+    def normalize_pagerank(self):
+        pagerank_sum = sum(node.pagerank for node in self.nodes)
+
+        for node in self.nodes:
+            node.pagerank /= pagerank_sum
+
     def get_auth_hub_list(self):
         auth_list = np.asarray([node.auth for node in self.nodes], dtype='float32')
         hub_list = np.asarray([node.hub for node in self.nodes], dtype='float32')
@@ -66,11 +72,17 @@ class Node:
         self.hub = 1.0
         self.pagerank = 1.0
 
-    def link_child(self, child):
-        self.children.append(child)
+    def link_child(self, new_child):
+        for child in self.children:
+            if(child.name == new_child.name):
+                return None
+        self.children.append(new_child)
 
-    def link_parent(self, parent):
-        self.parents.append(parent)
+    def link_parent(self, new_parent):
+        for parent in self.parents:
+            if(parent.name == new_parent.name):
+                return None
+        self.parents.append(new_parent)
 
     def update_auth(self):
         self.auth = sum(node.hub for node in self.parents)

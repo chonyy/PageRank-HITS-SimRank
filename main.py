@@ -13,6 +13,7 @@ def output_HITS(iteration, graph, result_dir, fname):
 
     HITS(iteration, graph)
     auth_list, hub_list = graph.get_auth_hub_list()
+    print()
     print('Authority:')
     print(auth_list)
     path = os.path.join(result_dir, fname)
@@ -20,6 +21,7 @@ def output_HITS(iteration, graph, result_dir, fname):
     np.savetxt(os.path.join(path, fname + authority_fname), auth_list, fmt='%.3f', newline=" ")
     print('Hub:')
     print(hub_list)
+    print()
     np.savetxt(os.path.join(path, fname + hub_fname), hub_list, fmt='%.3f', newline=" ")
 
 
@@ -30,6 +32,7 @@ def output_PageRank(iteration, graph, damping_factor, result_dir, fname):
     pagerank_list = graph.get_pagerank_list()
     print('PageRank:')
     print(pagerank_list)
+    print()
     path = os.path.join(result_dir, fname)
     os.makedirs(path, exist_ok=True)
     np.savetxt(os.path.join(path, fname + pagerank_fname), pagerank_list, fmt='%.3f', newline=" ")
@@ -42,6 +45,7 @@ def output_SimRank(iteration, graph, decay_factor, result_dir, fname):
     ans = sim.get_sim_matrix()
     print('SimRank:')
     print(ans)
+    print()
     path = os.path.join(result_dir, fname)
     os.makedirs(path, exist_ok=True)
     np.savetxt(os.path.join(path, fname + simrank_fname), ans, delimiter=' ', fmt='%.3f')
@@ -50,8 +54,8 @@ def output_SimRank(iteration, graph, decay_factor, result_dir, fname):
 if __name__ == '__main__':
     damping_factor = 0.15
     decay_factor = 0.9
-    iteration = 100
-    file_path = 'dataset/graph_1.txt'
+    iteration = 500
+    file_path = 'dataset/IBM.txt'
     result_dir = 'result'
     fname = file_path.split('/')[-1].split('.')[0]
 
