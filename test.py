@@ -4,7 +4,7 @@ from numpy import array
 from src.utils import init_graph
 import matplotlib.pyplot as plt
 
-with open('./dataset/HITS.txt') as f:
+with open('./dataset/graph_4.txt') as f:
     lines = f.readlines()
 
 G = nx.DiGraph()
@@ -30,5 +30,5 @@ lol = [[sim[u][v] for v in sorted(sim[u])] for u in sorted(sim)]
 sim_array = np.round(array(lol), 3)
 print(sim_array)
 
-# nx.draw(G, with_labels=True)
-# plt.savefig("graph.png")
+nx.draw(G, with_labels=True, node_size=3000, edge_color='#eb4034', width=3, font_size=18, font_weight=500, arrowsize=20)
+plt.savefig("graph.png")
