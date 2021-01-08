@@ -35,3 +35,26 @@ Run program with dataset and cusotm parameters
 ```
 python main.py --input_file 'dataset/graph_1.txt' --damping_factor 0.15 --decay_factor 0.9 --iteration 500
 ```
+
+## Result
+
+### Output on console
+
+<p align=center>
+    <img src="img/output.png">
+</p>
+
+The order of the result follows the order of the node value. For example, `1, 2, 5, 7`.
+
+### Output to files in result folder
+
+<p align=center>
+    <img src="img/result.png">
+</p>
+
+A new folder with the name same with the graph will be created in the result directory. Four txt files will be created to store the value printed on the console.
+
+- graph_HITS_authority.txt
+- graph_HITS_hub.txt
+- graph_PageRank.txt
+- graph_SimRank.txt
