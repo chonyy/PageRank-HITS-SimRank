@@ -19,41 +19,19 @@
 
 ## How to use
 
-### Install the Pypi package using pip
-
-```
-pip install fpgrowth_py
-```
-
-Then use it like 
-
-```python
-from fpgrowth_py import fpgrowth
-itemSetList = [['eggs', 'bacon', 'soup'],
-                ['eggs', 'bacon', 'apple'],
-                ['soup', 'bacon', 'banana']]
-freqItemSet, rules = fpgrowth(itemSetList, minSupRatio=0.5, minConf=0.5)
-print(freqItemSet)
-print(rules)  
-# [[{'beer'}, {'rice'}, 0.6666666666666666], [{'rice'}, {'beer'}, 1.0]]
-# rules[0] --> rules[1], confidence = rules[2]
-```
-
-### Clone the repo
-
 Get a copy of this repo using git clone
 ```
-git clone https://github.com/chonyy/fpgrowth_py.git
+git clone https://github.com/chonyy/PageRank-HITS-SimRank.git
 ```
 
-Run the program with dataset provided and **default** values for *minSupport* = 0.5 and *minConfidence* = 0.5
+Run the program with dataset provided and **default** values for *damping_factor* = 0.15, *decay_factor* = 0.9 and *iteration* = 100
 
 ```
-python fpgrowth.py -f dataset.csv
+python main.py -f 'dataset/graph_1.txt'
 ```
 
-Run program with dataset and min support and min confidence  
+Run program with dataset and cusotm parameters
 
 ```
-python fpgrowth.py -f tesco2.csv -s 0.5 -c 0.5
+python main.py --input_file 'dataset/graph_1.txt' --damping_factor 0.15 --decay_factor 0.9 --iteration 500
 ```
