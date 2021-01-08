@@ -1,4 +1,4 @@
-from src.utils import init_graph
+from src.utils.utils import init_graph
 from src.HITS import HITS
 from src.PageRank import PageRank
 from src.SimRank import SimRank
@@ -55,7 +55,7 @@ if __name__ == '__main__':
     damping_factor = 0.15
     decay_factor = 0.9
     iteration = 500
-    file_path = 'dataset/IBM.txt'
+    file_path = 'dataset/graph3_increase_rank.txt'
     result_dir = 'result'
     fname = file_path.split('/')[-1].split('.')[0]
 

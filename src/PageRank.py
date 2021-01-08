@@ -1,4 +1,4 @@
-from src.utils import init_graph
+from src.utils.utils import init_graph
 
 
 def PageRank_one_iter(graph, d):

@@ -1,6 +1,6 @@
 from src.Graph import Node, Graph
 from src.Similarity import Similarity
-from src.utils import init_graph
+from src.utils.utils import init_graph
 import numpy as np
 
 
