@@ -10,7 +10,7 @@ def PageRank_one_iter(graph, d):
     # print()
 
 
-def PageRank(iteration, graph, d):
+def PageRank(graph, d, iteration=100):
     for i in range(iteration):
         PageRank_one_iter(graph, d)
 

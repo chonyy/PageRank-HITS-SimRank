@@ -3,6 +3,7 @@ from src.HITS import HITS
 from src.PageRank import PageRank
 from src.SimRank import SimRank
 from src.Similarity import Similarity
+from optparse import OptionParser
 import numpy as np
 import os
 
@@ -11,7 +12,7 @@ def output_HITS(iteration, graph, result_dir, fname):
     authority_fname = '_HITS_authority.txt'
     hub_fname = '_HITS_hub.txt'
 
-    HITS(iteration, graph)
+    HITS(graph, iteration)
     auth_list, hub_list = graph.get_auth_hub_list()
     print()
     print('Authority:')
@@ -28,7 +29,7 @@ def output_HITS(iteration, graph, result_dir, fname):
 def output_PageRank(iteration, graph, damping_factor, result_dir, fname):
     pagerank_fname = '_PageRank.txt'
 
-    PageRank(iteration, graph, damping_factor)
+    PageRank(graph, damping_factor, iteration)
     pagerank_list = graph.get_pagerank_list()
     print('PageRank:')
     print(pagerank_list)
@@ -41,7 +42,7 @@ def output_PageRank(iteration, graph, damping_factor, result_dir, fname):
 def output_SimRank(iteration, graph, decay_factor, result_dir, fname):
     simrank_fname = '_SimRank.txt'
 
-    SimRank(iteration, graph, sim)
+    SimRank(graph, sim, iteration)
     ans = sim.get_sim_matrix()
     print('SimRank:')
     print(ans)
@@ -52,10 +53,35 @@ def output_SimRank(iteration, graph, decay_factor, result_dir, fname):
 
 
 if __name__ == '__main__':
-    damping_factor = 0.15
-    decay_factor = 0.9
-    iteration = 500
-    file_path = 'dataset/graph3_increase_rank.txt'
+
+    optparser = OptionParser()
+    optparser.add_option('-f', '--input_file',
+                         dest='input_file',
+                         help='CSV filename',
+                         default='dataset/graph_1.txt')
+    optparser.add_option('--damping_factor',
+                         dest='damping_factor',
+                         help='Damping factor (float)',
+                         default=0.15,
+                         type='float')
+    optparser.add_option('--decay_factor',
+                         dest='decay_factor',
+                         help='Decay factor (float)',
+                         default=0.9,
+                         type='float')
+    optparser.add_option('--iteration',
+                         dest='iteration',
+                         help='Iteration (int)',
+                         default=500,
+                         type='int')
+
+    (options, args) = optparser.parse_args()
+
+    file_path = options.input_file
+    iteration = options.iteration
+    damping_factor = options.damping_factor
+    decay_factor = options.decay_factor
+
     result_dir = 'result'
     fname = file_path.split('/')[-1].split('.')[0]
 

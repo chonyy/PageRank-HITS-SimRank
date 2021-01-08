@@ -14,7 +14,7 @@ def SimRank_one_iter(graph, sim):
     sim.replace_sim()
 
 
-def SimRank(iteration, graph, sim):
+def SimRank(graph, sim, iteration=100):
     for i in range(iteration):
         SimRank_one_iter(graph, sim)
         # ans = sim.get_sim_matrix()

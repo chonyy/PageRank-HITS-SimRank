@@ -1,10 +1,9 @@
 import networkx as nx
 import numpy as np
 from numpy import array
-from src.utils import init_graph
 import matplotlib.pyplot as plt
 
-with open('./dataset/graph3_increase_rank.txt') as f:
+with open('./dataset/HITS.txt') as f:
     lines = f.readlines()
 
 G = nx.DiGraph()
