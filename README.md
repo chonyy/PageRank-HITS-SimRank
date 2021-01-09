@@ -11,7 +11,7 @@
     <a target="_blank" href="http://makeapullrequest.com" title="PRs Welcome"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
 </p>
 
-> Python implementation of famous link analysis algorithms.
+> 🎏 Python implementation of famous link analysis algorithms.
 
 - HITS Algorithm
 - PageRank Algorithm
