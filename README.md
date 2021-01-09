@@ -64,6 +64,6 @@ A new folder with the name same with the graph will be created in the result dir
 <p align=center>
     <img src="img/convergence.png">
     <img src="img/HITS_nodetime.png">
-    <img src="img/pagerank_nodetime.png">
+    <img src="img/pagerank_node_time.png">
     <img src="img/simrank_nodetime.png">
 </p>
