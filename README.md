@@ -17,7 +17,7 @@
 - PageRank Algorithm
 - SimRank Algorithm
 
-## How to use
+## 💻 Getting Started
 
 Get a copy of this repo using git clone
 ```
@@ -58,3 +58,12 @@ A new folder with the name same with the graph will be created in the result dir
 - graph_HITS_hub.txt
 - graph_PageRank.txt
 - graph_SimRank.txt
+
+## Analysis
+
+<p align=center>
+    <img src="img/convergence.png">
+    <img src="img/HITS_nodetime.png">
+    <img src="img/pagerank_nodetime.png">
+    <img src="img/simrank_nodetime.png">
+</p>
